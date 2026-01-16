@@ -9,8 +9,8 @@ Upload a CSV file with **30 features** to predict whether the tumor is **Benign*
 
 @st.cache_resource
 def load_model():
-    model = joblib.load("Logistic_Regression.pkl")  # your trained Logistic Regression model
-    scaler = joblib.load("scaler.pkl")  # your fitted StandardScaler
+    model = joblib.load("Logistic_Regression.pkl")
+    scaler = joblib.load("scaler.pkl")
     return model, scaler
 
 model, scaler = load_model()
@@ -34,7 +34,7 @@ if uploaded_file is not None:
         st.write("Prediction Results:")
         st.dataframe(result_df)
 
-        # Optional: Download predictions as CSV
+
         csv = result_df.to_csv(index=False)
         st.download_button(
             label="Download Predictions as CSV",
